@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+          rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  fixed-top">
+        <a class="navbar-brand" href="/Admin">Musify-Admin portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon  material-icons-outlined">menu</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Song_display">Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Artist_display">Artist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Admin/Album_display">Album</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Customer"> Customer Site</a>
+                </li>
+                <li class="nav-item">
+                   @Html.ActionLink("Logout","Logout","Admin", new {@class = " nav-link"})
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <br /><br />
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

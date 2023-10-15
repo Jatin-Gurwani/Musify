@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Musify_web.Models.Song>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using(Html.BeginForm("Search","Home",FormMethod.Post))
+            {
+                <b>Search Option :</b>
+                @Html.RadioButton("Option","Album_name")<text>Album</text>
+                @Html.RadioButton("Option","Song_name")<text>Song</text>
+                @Html.RadioButton("Option","Artist_name")<text>Artist</text>
+                @Html.TextBox("Search")<input type="submit" name="submit" value="submit" />
+            }
+ @if (ViewBag.notfound == "")
+ {
+     <h3 class="btn-danger"> @ViewBag.notfound</h3>
+ }
+ else
+ {
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Song_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Artist_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Album_id)
+            </th>
+        
+       
+            <th>
+                
+            </th>
+        </tr>
+
+    @foreach (var item in ViewBag.data)
+    {
+        <tr>
+            <td>
+                @item.Song_name
+            </td>
+            <td>
+                @item.Artist_name
+            </td>
+            <td>
+                @item.Album_name
+            </td>
+            <td>
+                <a href="/Home/album?Album_id=@item.Album_id" class="btn btn-outline-success"> View More</a>
+            </td>
+      
+        
+       
+        </tr>
+    }
+
+    </table>
+ }

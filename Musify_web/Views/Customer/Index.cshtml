@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_Layout_Cust.cshtml";
+}
+<div class="container-fluid body-content mt-4">
+    
+    <div class="jumbotron Home-jumbotron">
+        @foreach (var item in ViewBag.name)
+        {
+            <h1> Hello  @item.Customer_name </h1>
+        }
+        
+        <h2>Welcome To Musify </h2>
+        <p class="lead"> Thanks For Being Part Of Musify </p>
+        @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    </div>
+    
+        <h5 class="mb-4"> Albums  <a href="/Customer/album_list" class="btn btn-outline-info float-right"> View more</a> </h5>
+        <div class=" row">
+
+            @foreach (var item in ViewBag.album)
+            {
+                  
+                <div class="card col-md-2 mb-2 mr-3">
+                    <a href="/Customer/album?Album_id=@item.Album_id"><img class="card-img-top  " src="@item.Album_img" with="50" height="200" alt="Card image cap"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Album_name</h5>
+                    </div>
+                   
+                </div>
+
+                
+            }
+        </div>
+
+    
+</div>
+

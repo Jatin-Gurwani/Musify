@@ -1,0 +1,112 @@
+﻿@model  Musify_web.Models.Customer
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="container-fluid body-content Login-bg ">
+    @if (ViewBag.Msg == "Registered Successfully . You can now Login from ")
+    {
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong> @ViewBag.Msg </strong><span><a href="/Home/Login">Login Page</a></span>
+        </div>
+
+
+    }
+    else if (ViewBag.Msg != "")
+    {
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Oh snap!</strong> @ViewBag.msg
+        </div>
+
+    }
+    else
+    {
+        
+    }
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class=" col-md-4  justify-content-center ">
+            <div class=" p-md-2 shadow-lg border mt-5  bg-light ">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal ">
+                        <h4 class="text-center">Register </h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Customer_name, htmlAttributes: new { @class = "control-label col-md " })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div accesskey="" v class="form-group">
+                            @Html.LabelFor(model => model.Customer_Email, htmlAttributes: new { @class = "control-label col-md" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Customer_Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Customer_Mobile_number, htmlAttributes: new { @class = "control-label col-md" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Customer_Mobile_number, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_Mobile_number, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Customer_DOB, htmlAttributes: new { @class = "control-label col-md" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Customer_DOB, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Customer_DOB, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Account_Password, htmlAttributes: new { @class = "control-label col-md" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Account_Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Account_Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Reenter_password, htmlAttributes: new { @class = "control-label col-md" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Reenter_password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Reenter_password, "", new { @class = "text-danger" })
+                               
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-outline-primary " />
+                                <br />
+                                <br />
+                                <h6> Already User ?</h6>
+                                 @Html.ActionLink("Login", "Login", "Home",new { @class = "btn btn-outline-info" })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "album";
+    Layout = "~/Views/Shared/_Layout_Cust.cshtml";
+}
+<div class="container body-content" >
+    <div class="border shadow p-md-4 bg-white">
+            <br />
+            <br />
+            @{ int i = 0; }
+            @foreach (var item in ViewBag.data)
+            {
+                while (i < 1)
+                {
+                    <div class=" row">
+
+                        <div class="col-md-5">
+                            <img src="@item.Album_img" class="rounded " style=" height:300px; width:400px" />
+                        </div>
+                        <div class="col float-left" style="padding:0;">
+                            <h2>@item.Album_name</h2>
+                            <h6></h6>
+                        </div>
+
+
+                    </div>
+                    i = 1;
+
+                }
+            }
+            <div class="row ">
+                <table class="table  table-hover col-md-12">
+                    <tr>
+                        <th>Song  </th>
+                        <th> Artist  </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <tr>
+                            <td>@item.Song_name</td>
+                            <td>@item.Artist_name</td>
+                            <td>
+                                @*<a href="#" class="btn  btn-outline-primary">Play</a>*@
+                                <audio src="@Url.Content(item.Song_link)" controls></audio>
+
+                            </td>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+    </div>
+
+</div>
+

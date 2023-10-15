@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Musify_web.Models.Song>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout_Cust.cshtml";
+}
+
+<div class="container body-content ">
+    <div class="container mt-4">
+        @using (Html.BeginForm("Search", "Customer", FormMethod.Post))
+        {
+           <div class="input-group">
+               <div class="input-group-prepend">
+                    <select name="Option" class="custom-select" >
+                        <option value="Album_name">Album Name</option>
+                        <option value="Song_name">Song Name</option>
+                        <option value="Artist_name">Artist Name</option>
+                    </select>
+               </div>
+                @Html.TextBox("Search")
+               <div class="input-group-append">
+                    <input type="submit" name="submit" value="submit" class="btn btn-secondary" />
+               </div>
+           </div>
+        
+        }
+    </div>
+    <div class="row pt-3">
+       
+            <table class="table border-dark shadow-lg table-responsive-md table-hover">
+                <tr class="bg-dark text-white">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Song_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Artist_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Album_id)
+                    </th>
+
+
+                    <th>
+
+                    </th>
+                </tr>
+
+                @foreach (var item in ViewBag.data)
+                {
+                    <tr>
+                        <td>
+                            @item.Song_name
+                        </td>
+                        <td>
+                            @item.Artist_name
+                        </td>
+                        <td>
+                            @item.Album_name
+                        </td>
+                        <td>
+                            <a href="/Customer/album?Album_id=@item.Album_id" class="btn btn-outline-info"> View More</a>
+                        </td>
+
+
+
+                    </tr>
+                }
+
+            </table>
+        
+    </div>
+</div>
+
+

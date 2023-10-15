@@ -1,0 +1,89 @@
+﻿@model Musify_web.Models.Customer
+
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout_Cust.cshtml";
+}
+
+
+
+<div class="container-fuild body-content cust-bg ">
+
+    <h2 class="text-center  text-white-50"> Account Information </h2>
+    <hr  style="color:black;" />
+    
+
+
+
+   
+        <div class="container">
+             @using (Html.BeginForm())
+             {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal row acc-section">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Customer_id)
+            @Html.HiddenFor(Model => Model.Role)
+
+            <div class="form-group col-md-6 mt-md-4">
+
+                @Html.LabelFor(model => model.Customer_name, htmlAttributes: new { @class = "control-label col-md" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Customer_name, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.Customer_name, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-md-6  mt-md-4">
+
+                @Html.LabelFor(model => model.Customer_Email, htmlAttributes: new { @class = "control-label col-md" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Customer_Email, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.Customer_Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Customer_Mobile_number, htmlAttributes: new { @class = "control-label col-md" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Customer_Mobile_number, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.Customer_Mobile_number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Customer_DOB, htmlAttributes: new { @class = "control-label col-md" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Customer_DOB, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.Customer_DOB, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Account_DOC, htmlAttributes: new { @class = "control-label col-md" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Account_DOC, new { htmlAttributes = new { @class = "form-control disabled", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.Account_DOC, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Account_Password, htmlAttributes: new { @class = "control-label col-md-2" }) 
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.Account_Password, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @placeholder = " ********* " } })
+                    @Html.ValidationMessageFor(model => model.Account_Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            </div>
+             }
+        </div>
+
+    
+    
+</div>
+

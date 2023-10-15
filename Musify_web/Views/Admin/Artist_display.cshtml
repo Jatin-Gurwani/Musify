@@ -1,0 +1,54 @@
+﻿
+@model IEnumerable<Musify_web.Models.Artist>
+
+@{
+    ViewBag.Title = "Artist_display";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/Admin/Artist_create" class="btn btn-outline-primary mb-2"><span class="material-icons-outlined sticky-top align-bottom">create_new_folder</span>Create New</a>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-5">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                        @Html.Label("Artist Name", new { @class = "input-group-text" })
+                    </div>
+                    @Html.TextBox("Search")
+                    <div class="input-group-append">
+                        <input type="submit" name="submit" value="Search" class="btn btn-secondary" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+        
+        <table class="table  table-responsive-md table-hover border-bottom border-top border-top border-left shadow-lg">
+            <tr class="text-white bg-dark">
+                <th>
+                    @Html.DisplayNameFor(model => model.Artist_name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artist_name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("edit", "Artist_edit", new { id = item.Artist_id }, new { @class = "material-icons-outlined align-bottom" })|
+                        @Html.ActionLink("delete_outline", "Artist_delete", new { id = item.Artist_id }, new { @class = "material-icons-outlined align-bottom text-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>
+

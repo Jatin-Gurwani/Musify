@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Musify_web.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Welcome To Admin Portal</h2>
+
+<br />
+<div class="row p-2">
+    @using (Html.BeginForm("Index","Admin",FormMethod.Post))
+    {
+        <div class="input-group ">
+            <div class="input-group-prepend">
+                @Html.Label("Phone Number", new { @class = "input-group-text" })
+            </div>
+            @Html.TextBox("Search")
+            <div class="input-group-append">
+                <input type="submit" name="submit" value="Search" class="btn btn-secondary" />
+            </div>
+        </div>
+    }
+</div>
+<table class="table  table-responsive-md table-hover border-bottom border-top border-top border-left shadow-lg">
+    <tr class="bg-dark text-light">
+
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Mobile_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_DOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Mobile_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_DOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            @Html.ActionLink("edit", "User_edit", new { id = item.Customer_id }, new {@class = "material-icons-outlined align-bottom" })|
+            @Html.ActionLink("delete_outline", "User_delete", new {id = item.Customer_id }, new { @class = "material-icons-outlined text-danger align-bottom " })
+        </td>   
+    </tr>
+}
+
+</table>

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Musify_web.Models.Song>
+@{
+    ViewBag.Title = "Song";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+
+
+<div class="container-fluid body-content">
+    <div class="row mb-2">
+
+        <div class="col-md-3"><a href="/Admin/Song_create" class="btn btn-outline-primary "><span class="material-icons-outlined sticky-top align-bottom">create_new_folder</span> Create New</a></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-4">
+             @using (Html.BeginForm("Song_display", "Admin", FormMethod.Post))
+        {
+            <div class="input-group">
+
+                <div class="input-group-prepend">
+
+                    <select name="Option" class="custom-select">
+                        <option value="Album_name">Album Name</option>
+                        <option value="Song_name">Song Name</option>
+                        <option value="Artist_name">Artist Name</option>
+                    </select>
+                </div>
+                @Html.TextBox("Search")
+                <div class="input-group-append">
+                    <input type="submit" name="submit" value="submit" class="btn btn-secondary" />
+                </div>
+            </div>
+
+        }
+        </div>
+   </div>
+        <table class="table  table-responsive-md table-hover border-bottom border-top border-top border-left shadow-lg">
+            <tr class="bg-dark text-white">
+                <th>
+                    @Html.DisplayNameFor(model => model.Song_name)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Artist_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Album_id)
+                </th>
+                <th> Album Cover </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre_id)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.Song_link) </th>
+                <th>Action</th>
+            </tr>
+
+            @foreach (var item in ViewBag.data)
+            {
+                <tr>
+                    <td>
+                        @item.Song_name
+                    </td>
+                    <td>
+                        @item.Artist_name
+                    </td>
+                    <td>
+                        @item.Album_name
+                    </td>
+                    <td> <img src="@item.Album_img" height="100" width="100" /></td>
+                    <td>
+                        @item.Genre_name
+                    </td>
+
+                    <td>
+                        @item.Song_link <br />
+                        <audio src="@Url.Content(item.Song_link)" controls></audio>
+
+                    </td>
+                    <td>
+                        <a href="/Admin"> <span class="material-icons-outlined align-bottom text-muted">edit</span></a> |
+                        @Html.ActionLink("delete_outline", "Song_delete", new { id = item.Song_id }, new { @class = "material-icons-outlined align-bottom text-danger" })
+                    </td>
+
+
+
+
+
+                </tr>
+
+            }
+
+
+        </table>
+    </div>
+

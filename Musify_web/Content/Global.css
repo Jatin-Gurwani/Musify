@@ -1,0 +1,153 @@
+.form-container{
+    position:absolute;
+    top:15vh;
+    background:#fff;
+    padding: 30px;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px 0px #000000;
+   
+
+}
+.Login-bg {
+   background: url('/Image/login-bg-2.jpg') no-repeat;
+    width: 100%;
+    height: 110vh;
+    background-size: 100%;
+    background-position:center;
+}
+.cust-bg {
+    background: url('/Image/Accountbg.png') no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    margin-top:0px;
+}
+
+.login-form {
+    width:400px;
+
+}
+
+
+
+.contact-jumbotron {
+    background: url('/Image/Contactbg1.jpg') no-repeat;
+    background-position: center;
+    color: cornsilk;
+    background-color: #ADB2AE;
+}
+
+.Home-jumbotron {
+    background: url('/Image/HP42.png') no-repeat;
+    background-color: thistle   ;
+    /*#D14C13*/
+/*    #FC90B0*/
+    width: 100%;
+    background-position: right;
+}
+
+.Home-Img{
+    filter: drop-shadow(2px 4px 8px #585858);
+}
+
+.about {
+    margin: 4em 0;
+    padding: 1em;
+    position: relative;
+}
+
+    .about h1 {
+        color: #F97300;
+        margin: 2em;
+    }
+
+    .about img {
+        height: 50%;
+        width: 75%;
+        
+    }
+
+    .about span {
+        display: block;
+        color: #888;
+        position: absolute;
+        left: 115px;
+    }
+
+    .about .desc {
+        padding: 2em;
+        border-left: 4px solid #10828C;
+    }
+
+        .about .desc h3 {
+            color: #10828C;
+        }
+/*        #FF2758*/
+
+    .about .desc p {
+            line-height: 2;
+            color: #888;
+        }
+
+
+.navbar {
+    background: #000000;
+}
+
+.nav-link, .navbar-brand {
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+    .nav-link:hover {
+        color: #f97300;
+    }
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-toggler {
+    background: #fff !important;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+#navbarColor01 {
+    background-color:lightblue;
+}
+
+.acc-section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000000;
+    position:center;
+   
+    
+}
+.pagenotfound {
+    background: url("/Image/noaccess.jpg") no-repeat;
+    background-size: 100%;
+    height:90vh;
+}
+
+.home-titlepage {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+    .home-titlepage h2 {
+        font-size: 45px;
+        line-height: 55px;
+        font-weight: bold;
+        padding-bottom: 20px;
+    }
+
+
+
+
+

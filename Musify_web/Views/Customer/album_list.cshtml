@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Musify_web.Models.album>
+
+@{
+    ViewBag.Title = "album_list";
+    Layout = "~/Views/Shared/_Layout_Cust.cshtml";
+}
+<div class="container body-content mt-5">
+    <div class="row p-3">
+        @using(Html.BeginForm())
+            {
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                        @Html.Label("Album Name",new {@class= "input-group-text" })
+                    </div>
+                    @Html.TextBox("Search")
+                    <div class="input-group-append">
+                        <input type="submit" name="submit" value="Search" class="btn btn-secondary" />
+                    </div>
+                </div>
+            }
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="card col-md-2 mb-2 mr-3">
+                <a href="/Customer/album?Album_id=@item.Album_id"><img class="card-img-top " src="@item.Album_img" with="50" height="200" alt="Card image cap"></a>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Album_name</h5>
+
+
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

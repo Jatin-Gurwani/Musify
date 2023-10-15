@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container-fluid body-content mt-4 mr-0 ml-0 ">
+    <div class="jumbotron Home-jumbotron" >
+        <h1>Welcome To Musify </h1>
+       
+        <p><a href="/Home/Register" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <br /><br />
+    </div>
+    <div class="row ">
+        <div class="col-md-10 offset-md-1 ">
+            <div class=" home-titlepage text-capitalize ">
+                <br /><br />
+                <span style="font-size: 45px;">Best music</span>
+                <h2>Popular Artists </h2>
+                <p style="font-size: 17px; line-height: 35px;">readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                <br />
+
+            </div>
+        </div>
+    </div>
+    <div class="row mr-0 " style=" background-color: #FC90B0; ">
+        @*#BCB6A8*@
+        @*#C90024*@
+        @*#FC90B0*@
+        <div class="col-md-8 d-flex justify-content-center  flex-column ">
+            <h1>Musify</h1>
+            @*<h4 class="">A Voice is All You Need</h4>*@
+            <h2>Music Without Limits</h2>
+            <h3> Enjoy Adfree Access to India's Largest Collection of songs </h3>
+        </div>
+        <div class="col-md-4">
+            <img src="~/Image/HP44.png" alt="img " style="height:400px; width:400px;" class=" float-right ">
+          
+        </div>
+
+    </div>
+    <div class="pt-3">
+        <h3> Latest Albums <a href="/Home/Login"  class="btn btn-outline-info float-right"> View More</a></h3>
+        <div class="row pt-2 ">
+
+
+            @foreach (var item in ViewBag.album)
+            {
+
+                <div class="card col-md-2 mb-2 mr-3">
+                    <img class="card-img-top  " src="@item.Album_img" with="50" height="200" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Album_name</h5>
+                    </div>
+
+                </div>
+
+
+            }
+        </div>
+       <footer class="blockquote-footer  p-1 " style="color:indianred;"> You have to be Member to Access Album </footer>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+        
